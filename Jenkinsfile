@@ -3,8 +3,8 @@ pipeline {
     parameters {
         string(name: 'USERNAME', defaultValue: 'sumeyye-koruyucu', description: 'Enter your username')
         choice(name: 'WORKSPACE', choices: ['dev', 'test', 'prod','staging'], description: 'Please Select a Workspace')
-        string(name: 'AMI_ID', defaultValue: 'ami-0cff7528ff583bf9a', description: "AMI ID ${params.WORKSPACE}")
-        string(name: 'INSTANCE_TYPE', defaultValue: 't2.micro', description: "INSTANCE_TYPE ${params.WORKSPACE}")
+        string(name: 'AMI_ID', choices: ['ami-06640050dc3f556bb', 'ami-08d4ac5b634553e16'], description: "AMI ID ${params.WORKSPACE}")
+        string(name: 'INSTANCE_TYPE', choices: ['t3a.medium', 't2.micro'], description: "INSTANCE_TYPE ${params.WORKSPACE}")
     }
    
     stages {
