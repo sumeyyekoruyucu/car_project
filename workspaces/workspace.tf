@@ -2,7 +2,7 @@ provider "aws" {
   region = "us-east-1"
 }
 resource "aws_iam_role" "aws_access_workspace" {
-  name = "awsrole-${terraform.workspace}"
+  name = "awsrole1-${terraform.workspace}"
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
     Statement = [
@@ -21,7 +21,7 @@ managed_policy_arns = ["arn:aws:iam::aws:policy/AdministratorAccess"]
 }
 
 resource "aws_iam_instance_profile" "ec2-profile-workspace" {
-  name = "car-project-profile-${terraform.workspace}"
+  name = "car-project-profile1-${terraform.workspace}"
   role = aws_iam_role.aws_access_workspace.name
 }
 resource "aws_instance" "tfmyec2" {
